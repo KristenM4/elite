@@ -1,6 +1,8 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 	Layout = null;
 }
+@await Html.PartialAsync("header")
+@await Html.PartialAsync("nav")
 @RenderBody()
+@await Html.PartialAsync("footer")
