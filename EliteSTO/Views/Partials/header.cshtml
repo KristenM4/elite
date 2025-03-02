@@ -1,4 +1,10 @@
-﻿<head>
-    <title></title>
+﻿@inherits UmbracoViewPage
+
+@{
+    var siteSettings = Model.GetSiteSettings();
+    if (siteSettings is null) return;
+}
+<head>
+    <title>@siteSettings.SiteName</title>
     <link rel="stylesheet" href="/css/styles.css" asp-append-version="true" />
 </head>
