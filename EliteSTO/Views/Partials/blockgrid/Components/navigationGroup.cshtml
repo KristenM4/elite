@@ -1,0 +1,33 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.NavigationGroup>>
+@if ((Model.Content.ChildLinks != null && Model.Content.ChildLinks.Any())
+&& (!string.IsNullOrWhiteSpace(Model.Content.Title) || Model.Content.Link != null))
+{
+    <div>
+        @if (Model.Content.Link != null)
+        {
+            <a target="@Model.Content.Link.Target" href="@Model.Content.Link.Url" role="button">
+                @Model.Content.Link.Name
+            </a>
+        }
+        else if (!string.IsNullOrWhiteSpace(Model.Content.Title))
+        {
+            <a href="#" role="button">
+                @Model.Content.Title
+            </a>
+        }
+        <div>
+            @foreach (var childLink in Model.Content.ChildLinks)
+            {
+                <a target="@childLink.Target" href="@childLink.Url">
+                    @childLink.Name
+                </a>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <a target="@Model.Content.Link.Target" href="@Model.Content.Link.Url">
+        @Model.Content.Link.Name
+    </a>
+}
