@@ -2,9 +2,41 @@
 @{
     if (Model?.Areas.Any() != true) { return; }
 }
-<nav>
-@foreach(var area in Model.Areas)
-{
-    @await Html.GetBlockGridItemAreaHtmlAsync(area)
-}
-</nav>
+<div class="site-nav">
+    <div id="desktop-nav">
+        <div>
+            <div id="site-logo">
+                <a href="/">
+                    <img src="~/assets/images/logo.svg" alt="Leapgreat logo" />
+                </a>
+            </div>
+            <nav class="nav-inner text-sm color-base">
+                @foreach(var area in Model.Areas)
+                {
+                    @await Html.GetBlockGridItemAreaHtmlAsync(area)
+                }
+            </nav>
+        </div>
+    </div>
+    <div id="mobile-nav">
+        <div>
+            <div id="mobile-logo">
+                <img src="/assets/images/logo.svg" alt="Leapgreat logo" />
+            </div>
+            <div class="nav-inner-mobile">
+                <button id="nav-toggle" aria-label="Toggle navigation menu">
+                    <div class="nav-toggle-bar"></div>
+                    <div class="nav-toggle-bar"></div>
+                </button>
+                <div id="mobile-links">
+                    <div>
+                        @foreach (var area in Model.Areas)
+                        {
+                            @await Html.GetBlockGridItemAreaHtmlAsync(area)
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,53 @@
 ﻿<footer></footer>
+﻿<script>
+     function fadeNav() {
+         let lastScrollY = window.scrollY;
+         const navbar = document.getElementById('desktop-nav').checkVisibility() ? document.getElementById('desktop-nav') : document.getElementById('mobile-nav');
+         if(navbar) {
+             window.addEventListener('scroll', () => {
+             if (window.scrollY > lastScrollY) {
+                 navbar.classList.add('scroll-down');
+             } else {
+                 navbar.classList.remove('scroll-down');
+                 if (window.scrollY != 0) {
+                     navbar.classList.add('bg-black');
+                 } else {
+                     navbar.classList.remove('bg-black');
+                 }
+             }
+             lastScrollY = window.scrollY;
+         })}
+     }
+     window.onresize = fadeNav;
+     window.onload = fadeNav;
+
+     function openMenu() {
+         const toggler = document.getElementById("nav-toggle");
+         const links = document.getElementById("mobile-links");
+         if (toggler && links) {
+             if (links.classList.contains("menu-open")) {
+                 document.body.classList.remove("menu-open");
+                 links.classList.remove("menu-open");
+                 toggler.classList.remove("menu-open");
+             } else {
+                 document.body.classList.add("menu-open");
+                 links.classList.add("menu-open");
+                 toggler.classList.add("menu-open");
+             }
+
+         }
+     }
+     function closeMenu() {
+         const toggler = document.getElementById("nav-toggle");
+         const links = document.getElementById("mobile-links");
+         if(toggler && links) {
+             if(window.innerWidth > 1100) {
+                 document.body.classList.remove("menu-open");
+                 links.classList.remove("menu-open");
+                 toggler.classList.remove("menu-open");
+             }
+         }
+     }
+     if(document.getElementById("nav-toggle")) document.getElementById("nav-toggle").addEventListener("click", openMenu);
+     window.onresize = closeMenu;
+</script>
