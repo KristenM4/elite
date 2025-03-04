@@ -1,0 +1,27 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.SocialLinks>>
+
+@if (Model.Content.Title is not null)
+{
+    <h4>@Model.Content.Title</h4>
+}
+
+@if(Model.Content?.Links?.Count > 0)
+{
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+    @foreach(BlockListItem<ContentModels.SocialLink> item in Model.Content.Links)
+    {
+        if (item.Content.Link is null) continue;
+        if (item.Content.Icon is null)
+        {
+            <a class="social-links" href="@item.Content.Link.Url">
+                @item.Content.Link.Name
+            </a>
+        } else
+        {
+            <a class="social-links" href="@item.Content.Link.Url" title="@item.Content.Link.Name" target="@item.Content.Link.Target">
+                <img src="@item.Content.Icon.Url()" style="width:25px;" />
+            </a>
+        }
+    }
+    </div>
+}

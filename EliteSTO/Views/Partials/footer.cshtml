@@ -1,4 +1,11 @@
-﻿<footer></footer>
+﻿@inherits UmbracoViewPage
+@{
+    var siteSettings = Model.GetSiteSettings();
+    if (siteSettings?.FooterContent is null) return;
+}
+<footer>
+@await Html.GetBlockGridItemsHtmlAsync(siteSettings.FooterContent)
+</footer>
 ﻿<script>
      function fadeNav() {
          let lastScrollY = window.scrollY;
