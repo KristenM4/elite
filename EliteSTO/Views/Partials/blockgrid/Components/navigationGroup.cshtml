@@ -1,9 +1,10 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.NavigationGroup>>
+@using Umbraco.Cms.Core.Models
 @if ((Model.Content.ChildLinks != null && Model.Content.ChildLinks.Any())
 && (!string.IsNullOrWhiteSpace(Model.Content.Title) || Model.Content.Link != null))
 {
     <div>
-        
+
         <div class="submenu" tabindex="0">
             @if (Model.Content.Link != null)
             {
@@ -17,7 +18,7 @@
                     @Model.Content.Title
                 </a>
             }
-            <svg class="submenu-arrow" xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 12 12" fill="none">
+            <svg style="margin-left:5px; margin-top:3px;" class="submenu-arrow" xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 12 12" fill="none">
                 <path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path>
             </svg>
             <div class="nav-submenu">
@@ -34,8 +35,23 @@
 else
 {
     <div>
-        <a target="@Model.Content.Link.Target" href="@Model.Content.Link.Url">
-            @Model.Content.Link.Name
-        </a>
+        @if(Model.Content.HasIcon is MediaWithCrops mediaEntry)
+        {
+            <a class="nav-icon" target="@Model.Content.Link.Target" href="@Model.Content.Link.Url">
+                <img src="@Model.Content.HasIcon.MediaUrl()" /><span class="nav-icon-text">@Model.Content.Link.Name</span>
+            </a>
+        }
+        else if(Model.Content.IsButton)
+        {
+            <a class="nav-button" target="@Model.Content.Link.Target" href="@Model.Content.Link.Url">
+                @Model.Content.Link.Name
+            </a>
+        }
+        else
+        {
+            <a target="@Model.Content.Link.Target" href="@Model.Content.Link.Url">
+                @Model.Content.Link.Name
+            </a>
+        }
     </div>
 }

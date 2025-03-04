@@ -373,6 +373,13 @@ body {
     align-self: center;
     vertical-align: middle;
 }
+@media only screen and (min-width: 1100px) {
+    .nav-icon .nav-icon-text {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 
 #mobile-links .nav-icon {
     margin-top: 20px;
@@ -386,7 +393,7 @@ a.nav-button,
     border: 1px solid #fff;
     border-radius: 3px;
     background: transparent;
-    padding: 7px 15px;
+    padding: 10px 18px;
     margin-left: 3.66vw;
     transition: all 0.3s ease;
 }
