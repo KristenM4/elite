@@ -160,6 +160,9 @@ a {
 .color-base {
     color: var(--rs--preset--color--base);
 }
+.color-gold {
+    color: var(--rs--preset--color--gold);
+}
 
 .button {
     text-decoration: none;
@@ -563,7 +566,7 @@ a.nav-button,
     height: 100%;
     width: 100%;
     display: block;
-    background-image: url(/assets/images/line-hero-home.png);
+    background-image: url(/images/line-hero-home.png);
     background-size: contain;
     background-position: center 90%;
     background-repeat: no-repeat;
@@ -603,7 +606,7 @@ a.nav-button,
     right: 0;
     top: 0;
     opacity: 1;
-    background-image: url(/assets/images/homepage-hero-divider-shape.svg);
+    background-image: url(/images/homepage-hero-divider-shape.svg);
     background-size: cover;
     background-position: bottom;
     background-color: rgba(21,21,21,0.6);
@@ -634,16 +637,17 @@ a.nav-button,
 }
 /* Footer */
 footer {
-    padding-top: var(--rs--preset--spacing--80);
-    padding-bottom: var(--rs--preset--spacing--30);
-    margin: 0 auto;
-    position: relative;
     background-color: var(--rs--preset--color--black);
     color: var(--rs--preset--color--white) !important;
-    max-width: var(--rs--style--global--content-size);
     position: relative;
     z-index: 5;
 }
+    footer > div {
+        max-width: var(--rs--style--global--content-size);
+        padding-top: var(--rs--preset--spacing--70);
+        padding-bottom: var(--rs--preset--spacing--30);
+        margin: 0 auto;
+    }
 .three-col {
     display: flex;
     flex-direction: column;

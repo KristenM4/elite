@@ -4,7 +4,9 @@
     if (siteSettings?.FooterContent is null) return;
 }
 <footer>
-@await Html.GetBlockGridItemsHtmlAsync(siteSettings.FooterContent)
+    <div>
+        @await Html.GetBlockGridItemsHtmlAsync(siteSettings.FooterContent)
+    </div>
 </footer>
 ﻿<script>
      function fadeNav() {
@@ -25,7 +27,7 @@
              lastScrollY = window.scrollY;
          })}
      }
-     window.onresize = fadeNav;
+     window.addEventListener('resize', fadeNav);
      window.onload = fadeNav;
 
      function openMenu() {
@@ -56,5 +58,5 @@
          }
      }
      if(document.getElementById("nav-toggle")) document.getElementById("nav-toggle").addEventListener("click", openMenu);
-     window.onresize = closeMenu;
+     window.addEventListener('resize', closeMenu);
 </script>
