@@ -90,14 +90,14 @@
     --rs--preset--font-size--xs: clamp(14px, 1.025vw, 1.025vw);
     --rs--preset--font-size--small: clamp(15px, 1.098vw, 1.098vw);
     --rs--preset--font-size--normal: clamp(16px, 1.171vw, 1.171vw);
-    --rs--preset--font-size--large: clamp(16px, 1.3vw, 1.3vw);
+    --rs--preset--font-size--large: clamp(17px, 1.27vw, 1.27vw);
     --rs--preset--font-size--xl: clamp(17px, 1.37vw, 1.37vw);
     --rs--preset--font-size--heading-6: clamp(18px, 1.464vw, 1.464vw);
     --rs--preset--font-size--heading-5: clamp(22px, 1.757vw, 1.757vw);
     --rs--preset--font-size--heading-4: clamp(28px, 2.635vw, 2.635vw);
     --rs--preset--font-size--heading-3: clamp(34px, 3.514vw, 3.514vw);
     --rs--preset--font-size--heading-2: clamp(38px, 4.246vw, 4.246vw);
-    --rs--preset--font-size--heading-1: clamp(38px, 4.978vw, 4.978vw);
+    --rs--preset--font-size--heading-1: clamp(38px, 4.778vw, 4.778vw);
     --rs--preset--font-size--xl-numbers: clamp(60px, 7.321vw, 7.321vw);
     --rs--preset--font-family--system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --rs--preset--font-family--serif: "Times New Roman", "New York", Times, "Noto Serif", serif;
@@ -134,6 +134,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--wp--preset--font-family--indivisible);
     font-style: normal;
     font-weight: 400;
+    margin: 0;
 }
 
 h1 {
@@ -142,7 +143,21 @@ h1 {
     text-transform: none;
     letter-spacing: calc(clamp(0.8px, 0.1vw, 0.1vw)* -1);
 }
-
+h2 {
+    font-size: var(--rs--preset--font-size--heading-2);
+}
+h3 {
+    font-size: var(--rs--preset--font-size--heading-3);
+}
+h4 {
+    font-size: var(--rs--preset--font-size--heading-4);
+}
+h5 {
+    font-size: var(--rs--preset--font-size--heading-5);
+}
+h6 {
+    font-size: var(--rs--preset--font-size--heading-6);
+}
 a {
     text-decoration: none;
     color: inherit;
@@ -154,7 +169,7 @@ a {
 }
 
 .lead {
-    font-size: var(--rs--preset--font-size--normal);
+    font-size: var(--rs--preset--font-size--large);
 }
 
 .color-base {
@@ -163,6 +178,70 @@ a {
 .color-gold {
     color: var(--rs--preset--color--gold);
 }
+.container {
+    max-width: var(--rs--style--global--content-size);
+    margin: 0 auto;
+}
+.container-w-sm {
+    max-width: 640px;
+}
+
+.container-w-md {
+    max-width: 768px;
+}
+
+.container-w-lg {
+    max-width: 1024px;
+}
+.w-fit {
+    width: fit-content;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.gap-sm {
+    gap: 4px;
+}
+.gap-md {
+    gap:8px;
+}
+.content-center {
+    justify-content: center;
+    align-items: center;
+}
+.text-center {
+    text-align: center;
+}
+.padding-y-sm {
+    padding-top: var(--rs--preset--spacing--20);
+    padding-bottom: var(--rs--preset--spacing--20);
+}
+.padding-y-md {
+    padding-top: var(--rs--preset--spacing--40);
+    padding-bottom: var(--rs--preset--spacing--40);
+}
+.padding-y-lg {
+    padding-top: var(--rs--preset--spacing--60);
+    padding-bottom: var(--rs--preset--spacing--60);
+}
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(3vh);
+    visibility: hidden;
+    transition: opacity 1s ease-out, transform 0.8s ease-out;
+    will-change: opacity, visibility;
+}
+
+    .fade-in-section.is-visible {
+        opacity: 1;
+        transform: none;
+        visibility: visible;
+    }
 
 .button {
     text-decoration: none;
@@ -171,6 +250,13 @@ a {
     display: flex;
     align-items: center;
     padding: 16px 25px;
+    font-size: var(--rs--preset--font-size--normal);
+    border-radius: 12px;
+    width: fit-content;
+}
+.button p {
+    padding: 1.5px 0;
+    margin: 0;
 }
 
 .button-gold {
@@ -181,7 +267,16 @@ a {
     .button-gold:hover {
         background: var(--rs--preset--color--white);
     }
+.button-black {
+    background: var(--rs--preset--color--black);
+    color: var(--rs--preset--color--white);
+    border: 2px solid white;
+}
 
+    .button-black:hover {
+        background: var(--rs--preset--color--white);
+        color: var(--rs--preset--color--black);
+    }
 body {
     margin: 0px;
     background-color: var(--rs--preset--color--black);
@@ -601,7 +696,7 @@ a.nav-button,
 
 .background-video-cover {
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     right: 0;
     top: 0;
@@ -609,7 +704,7 @@ a.nav-button,
     background-image: url(/images/homepage-hero-divider-shape.svg);
     background-size: cover;
     background-position: bottom;
-    background-color: rgba(21,21,21,0.6);
+    background-color: rgba(21,21,21,0.4);
     z-index: -1;
 }
 

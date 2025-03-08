@@ -1,0 +1,25 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.GeneralContent>>
+
+@if(Model.Content.Section == 2)
+{
+    <div class="fade-in-section container padding-y-md container-w-lg" style="color:white;position:relative;z-index:2;text-align:center;justify-content:center;">
+        <div class="flex-col content-center text-center gap-md">
+            <div>@Model.Content.Title</div>
+            <div>@Model.Content.Text</div>
+            @if (Model.Content.Buttons is not null && Model.Content.Buttons.Count > 0)
+            {
+                @foreach (BlockListItem<ContentModels.Button> item in Model.Content.Buttons)
+                {
+                    if (item.Content.Link is null || item.Content.Color is null || item.Content.Label is null) continue;
+                    <div class="content-center flex-col gap-md">
+                        <a href="@item.Content.Link.Url" class="button button-@item.Content.Color.Label.ToLower()">
+                            <div>
+                                @item.Content.Label
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}

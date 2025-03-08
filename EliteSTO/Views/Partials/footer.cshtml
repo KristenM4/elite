@@ -8,7 +8,7 @@
         @await Html.GetBlockGridItemsHtmlAsync(siteSettings.FooterContent)
     </div>
 </footer>
-﻿<script>
+<script>
      function fadeNav() {
          let lastScrollY = window.scrollY;
          const navbar = document.getElementById('desktop-nav').checkVisibility() ? document.getElementById('desktop-nav') : document.getElementById('mobile-nav');
@@ -59,4 +59,18 @@
      }
      if(document.getElementById("nav-toggle")) document.getElementById("nav-toggle").addEventListener("click", openMenu);
      window.addEventListener('resize', closeMenu);
+
+          document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".fade-in-section");
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+    });
 </script>

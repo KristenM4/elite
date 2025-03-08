@@ -1,0 +1,24 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.HomepageHeader>>
+
+<div>
+    <span aria-hidden="true" class="background-video-cover"></span>
+    <video class="background-video" autoplay="" muted="" loop="" playsinline="" src="/videos/construction_worker_hero_bg.mp4" data-object-fit="cover"></video>
+    <div class="partial-top">
+        <div class="hero-content fade-in-section">
+            <div>@Model.Content.Title</div>
+            <div class="lead">@Model.Content.Text</div>
+            @if (Model.Content.Button is not null && Model.Content.Button.Count > 0)
+            {
+                @foreach (BlockListItem<ContentModels.Button> item in Model.Content.Button)
+                {
+                    if (item.Content.Link is null || item.Content.Color is null || item.Content.Label is null) continue;
+                    <div class="hero-buttons">
+                    <a href="@item.Content.Link.Url" class="button button-@item.Content.Color.Label.ToLower()">
+                            <div>@item.Content.Label</div>
+                     </a> 
+                </div>
+                }
+            }
+        </div>
+    </div>
+</div>
