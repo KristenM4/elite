@@ -376,8 +376,11 @@ body {
 #mobile-logo img{
     max-width: 87px;
 }
-#desktop-nav.scroll-down,
-#mobile-nav.scroll-down {
+#main-nav.scroll-down {
+    z-index: 0 !important;
+}
+#main-nav.scroll-down #desktop-nav,
+#main-nav.scroll-down #mobile-nav {
     transform: translateY(-100%);
 }
 

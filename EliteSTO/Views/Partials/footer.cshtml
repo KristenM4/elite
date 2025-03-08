@@ -11,7 +11,9 @@
 <script>
      function fadeNav() {
          let lastScrollY = window.scrollY;
-         const navbar = document.getElementById('desktop-nav').checkVisibility() ? document.getElementById('desktop-nav') : document.getElementById('mobile-nav');
+         const navbar = document.getElementById('main-nav');
+         const desktopNav = document.getElementById('desktop-nav');
+         const mobileNav = document.getElementById('mobile-nav');
          if(navbar) {
              window.addEventListener('scroll', () => {
              if (window.scrollY > lastScrollY) {
@@ -19,9 +21,11 @@
              } else {
                  navbar.classList.remove('scroll-down');
                  if (window.scrollY != 0) {
-                     navbar.classList.add('bg-black');
+                     desktopNav.classList.add('bg-black');
+                     mobileNav.classList.add('bg-black');
                  } else {
-                     navbar.classList.remove('bg-black');
+                     desktopNav.classList.remove('bg-black');
+                     mobileNav.classList.remove('bg-black');
                  }
              }
              lastScrollY = window.scrollY;
@@ -60,15 +64,15 @@
      if(document.getElementById("nav-toggle")) document.getElementById("nav-toggle").addEventListener("click", openMenu);
      window.addEventListener('resize', closeMenu);
 
-          document.addEventListener("DOMContentLoaded", function () {
-        const sections = document.querySelectorAll(".fade-in-section");
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".fade-in-section");
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
-                }
-            });
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                    }
+                });
         }, { threshold: 0.1 });
 
         sections.forEach(section => observer.observe(section));
