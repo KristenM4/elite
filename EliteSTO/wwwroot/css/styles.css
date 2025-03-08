@@ -172,11 +172,26 @@ a {
     font-size: var(--rs--preset--font-size--large);
 }
 
+.color-white {
+    color: var(--rs--preset--color--white);
+}
 .color-base {
     color: var(--rs--preset--color--base);
 }
 .color-gold {
     color: var(--rs--preset--color--gold);
+}
+.color-black {
+    color: var(--rs--preset--color--black);
+}
+.bg-white {
+    background: var(--rs--preset--color--white);
+}
+.bg-gold {
+    background: var(--rs--preset--color--gold);
+}
+.bg-black {
+    background: var(--rs--preset--color--black);
 }
 .container {
     max-width: var(--rs--style--global--content-size);
@@ -196,6 +211,9 @@ a {
 .w-fit {
     width: fit-content;
 }
+.w-full {
+    width: 100%;
+}
 .flex-col {
     display: flex;
     flex-direction: column;
@@ -204,11 +222,31 @@ a {
     display: flex;
     flex-direction: row;
 }
+.grid-2 {
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    grid-template-rows: auto;
+}
+@media only screen and (max-width: 1100px) {
+    .grid-2 {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr !important;
+    }
+}
 .gap-sm {
     gap: 4px;
 }
 .gap-md {
     gap:8px;
+}
+.gap-lg {
+    gap: 15px;
+}
+.gap-xl {
+    gap: 25px;
+}
+.gap-2xl {
+    gap: 35px;
 }
 .content-center {
     justify-content: center;
@@ -251,7 +289,7 @@ a {
     align-items: center;
     padding: 16px 25px;
     font-size: var(--rs--preset--font-size--normal);
-    border-radius: 12px;
+    border-radius: 10px;
     width: fit-content;
 }
 .button p {
@@ -262,6 +300,7 @@ a {
 .button-gold {
     background: var(--rs--preset--color--gold);
     color: var(--rs--preset--color--black);
+    border: 1.5px solid var(--rs--preset--color--gold);
 }
 
     .button-gold:hover {
@@ -270,12 +309,13 @@ a {
 .button-black {
     background: var(--rs--preset--color--black);
     color: var(--rs--preset--color--white);
-    border: 2px solid white;
+    border: 1.5px solid white;
 }
 
     .button-black:hover {
         background: var(--rs--preset--color--white);
         color: var(--rs--preset--color--black);
+        border: 1.5px solid var(--rs--preset--color--black);
     }
 body {
     margin: 0px;
@@ -729,6 +769,17 @@ a.nav-button,
         justify-content: start;
         align-items: start;
     }
+}
+.before-divider-white::before {
+    position: absolute;
+    width: 100%;
+    height: var(--rs--preset--spacing--80);
+    background: inherit;
+    content: " ";
+    mask-image: url(/images/divider-shape-ivory-up.svg);
+    mask-size: cover;
+    mask-position: top;
+    top: calc(var(--rs--preset--spacing--80) * -1);
 }
 /* Footer */
 footer {
