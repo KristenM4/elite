@@ -1,0 +1,6 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.FeaturesList>>
+
+@if(Model.Content.Page?.ToLower().StripWhitespace() == "homepage")
+{
+    @await Html.PartialAsync("~/Views/Partials/Homepage/homepageFeaturesList.cshtml")
+}

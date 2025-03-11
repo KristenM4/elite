@@ -1,0 +1,39 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.FeaturesList>>
+
+@if (Model.Content.Section == 4)
+{
+    <div style="z-index:2;position:relative;" class="before-divider-white bg-base color-black">
+        <div class="fade-in-section container padding-y-lg flex-col gap-lg">
+            <div class="flex-col gap-lg content-center">
+                <div>@Model.Content.Title</div>
+                <div>@Model.Content.Text</div>
+            </div>
+            @if(Model.Content.Features is not null)
+            {
+                <div class="grid-4 padding-y-sm">
+                    @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
+                    {
+                        <div class="feature-item flex-col gap-md">
+                            @if (item.Content.Image is not null)
+                            {
+                                <div style="padding-bottom:25px;">
+                                    <img width="100" src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" />
+                                </div>
+                            }
+                            @if(!string.IsNullOrWhiteSpace(item.Content.Title))
+                            {
+                                <h5 class="semi-bold">@item.Content.Title</h5>
+                            }
+                            @if (item.Content.Text is not null)
+                            {
+                                <div>
+                                    @item.Content.Text
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}
