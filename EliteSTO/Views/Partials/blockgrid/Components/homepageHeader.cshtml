@@ -3,7 +3,7 @@
 <div>
     <span aria-hidden="true" class="background-video-cover"></span>
     <video class="background-video" autoplay="" muted="" loop="" playsinline="" src="/videos/construction_worker_hero_bg.mp4" data-object-fit="cover"></video>
-    <div class="partial-top">
+    <div class="partial-top partial-top-home">
         <div class="hero-content fade-in-section">
             <div>@Model.Content.Title</div>
             <div class="lead">@Model.Content.Text</div>
@@ -12,11 +12,20 @@
                 @foreach (BlockListItem<ContentModels.Button> item in Model.Content.Button)
                 {
                     if (item.Content.Link is null || item.Content.Color is null || item.Content.Label is null) continue;
-                    <div class="hero-buttons">
-                    <a href="@item.Content.Link.Url" class="button button-@item.Content.Color.Label.ToLower()">
-                            <div>@item.Content.Label</div>
-                     </a> 
-                </div>
+                    <div class="content-center flex-col gap-md">
+                        <a href="@item.Content.Link.Url" class="flex-row gap-sm button button-@item.Content.Color.Label.ToLower()">
+                            <div>
+                                @item.Content.Label
+                            </div>
+                            @if (item.Content.Icon is not null && item.Content.Icon == "Arrow")
+                            {
+                                <svg style="stroke:currentColor;" width="15" height="10" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.00090605 4L10.1445 4" stroke="inherit" stroke-linejoin="round" />
+                                    <path d="M7.41356 6.73051L10.1445 3.99953L7.41356 1.26855" stroke="inherit" stroke-linejoin="round" />
+                                </svg>
+                            }
+                        </a>
+                    </div>
                 }
             }
         </div>

@@ -1,16 +1,17 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @{
     if (Model?.Areas.Any() != true) { return; }
+    string Logo = ViewBag.BodyClass == "gold" ? "/images/logo-dark.png" : "/images/logo.png";
 }
 <div id="main-nav" class="site-nav">
     <div id="desktop-nav">
         <div>
             <div id="site-logo">
                 <a href="/">
-                    <img src="/images/logo.png" alt="EliteSTO logo" />
+                    <img id="site-logo-img" src="@Logo" alt="EliteSTO logo" />
                 </a>
             </div>
-            <nav class="nav-inner text-sm color-base">
+            <nav class="nav-inner text-sm">
                 @foreach(var area in Model.Areas)
                 {
                     @await Html.GetBlockGridItemAreaHtmlAsync(area)
@@ -21,7 +22,7 @@
     <div id="mobile-nav">
         <div>
             <div id="mobile-logo">
-                <img src="/images/logo.png" alt="EliteSTO logo" />
+                <img id="site-logo-mobile" src="@Logo" alt="EliteSTO logo" />
             </div>
             <div class="nav-inner-mobile">
                 <button style="margin-top:20px;" type="button" id="nav-toggle" aria-label="Toggle navigation menu">

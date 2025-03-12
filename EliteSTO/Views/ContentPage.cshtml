@@ -1,6 +1,14 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContentPage>
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContentPage>
 @{
-	Layout = null;
+	if (Model.ColorTheme is not null && Model.ColorTheme.Label.ToLower() == "gold")
+	{
+		ViewBag.BodyClass = "gold";
+		Layout = "MainGold.cshtml";
+	}
+	else
+	{
+		ViewBag.BodyClass = "black";
+		Layout = "Main.cshtml";
+	}
 }
+@await Html.GetBlockGridHtmlAsync(Model, "headerContent")

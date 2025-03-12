@@ -116,7 +116,9 @@
     --rs--style--global--content-size: 85.5vw;
     --rs--style--global--wide-size: 88vw;
 }
-
+body {
+    overflow-x: hidden;
+}
 body.menu-open {
     overflow: hidden;
 }
@@ -369,6 +371,7 @@ a {
 body {
     margin: 0px;
     background-color: var(--rs--preset--color--black);
+    color: var(--rs--preset--color--white);
     font-family: var(--rs--preset--font-family--indivisible);
     overflow-x: hidden;
 }
@@ -392,6 +395,9 @@ body {
         visibility: hidden;
         display: none;
     }
+}
+#desktop-nav nav {
+    color: inherit;
 }
 
 #desktop-nav > div {
@@ -422,8 +428,13 @@ body {
 }
 
 #site-logo img,
-#mobile-logo img{
-    max-width: 87px;
+#mobile-logo img {
+    max-width: 75px;
+}
+@media only screen and (max-width: 900px) {
+    #mobile-logo img {
+        max-width: 55px;
+    }
 }
 #main-nav.scroll-down {
     z-index: 0 !important;
@@ -660,7 +671,7 @@ a.nav-button,
 }
 
 .nav-toggle-bar {
-    background-color: var(--rs--preset--color--white);
+    background-color: white;
     width: 100%;
     height: 2px;
     transition: transform 0.3s ease;
@@ -688,7 +699,7 @@ a.nav-button,
     right: 0;
     top: 0;
     width: 100vw;
-    height: 100dvh;
+    height: 100vh;
     background: var(--rs--preset--color--black);
     color: var(--rs--preset--color--white);
     opacity: 0;
@@ -745,7 +756,7 @@ a.nav-button,
         }
 }
 
-.partial-top::after {
+.partial-top-home::after {
     content: "";
     position: absolute;
     left: 0;

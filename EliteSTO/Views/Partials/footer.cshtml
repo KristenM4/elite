@@ -14,6 +14,7 @@
          const navbar = document.getElementById('main-nav');
          const desktopNav = document.getElementById('desktop-nav');
          const mobileNav = document.getElementById('mobile-nav');
+         const colorClass = document.body.classList.contains('bg-gold') ? 'bg-gold' : 'bg-black';
          if(navbar) {
              window.addEventListener('scroll', () => {
              if (window.scrollY > lastScrollY) {
@@ -21,11 +22,11 @@
              } else {
                  navbar.classList.remove('scroll-down');
                  if (window.scrollY != 0) {
-                     desktopNav.classList.add('bg-black');
-                     mobileNav.classList.add('bg-black');
+                     desktopNav.classList.add(colorClass);
+                     mobileNav.classList.add(colorClass);
                  } else {
-                     desktopNav.classList.remove('bg-black');
-                     mobileNav.classList.remove('bg-black');
+                     desktopNav.classList.remove(colorClass);
+                     mobileNav.classList.remove(colorClass);
                  }
              }
              lastScrollY = window.scrollY;
