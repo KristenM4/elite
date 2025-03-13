@@ -12,7 +12,7 @@
                 @foreach (BlockListItem<ContentModels.Button> item in Model.Content.Button)
                 {
                     if (item.Content.Link is null || item.Content.Color is null || item.Content.Label is null) continue;
-                    <div class="content-center flex-col gap-md">
+                    <div class="flex-col gap-md">
                         <a href="@item.Content.Link.Url" class="flex-row gap-sm button button-@item.Content.Color.Label.ToLower()">
                             <div>
                                 @item.Content.Label

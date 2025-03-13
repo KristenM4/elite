@@ -138,20 +138,27 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     margin: 0;
 }
+p {
+    margin:0;
+}
 
 h1 {
     font-size: var(--rs--preset--font-size--heading-1);
+    font-weight: 600;
     line-height: 1;
     text-transform: none;
     letter-spacing: calc(clamp(0.8px, 0.1vw, 0.1vw)* -1);
 }
 h2 {
+    font-weight: 600;
     font-size: var(--rs--preset--font-size--heading-2);
 }
 h3 {
+    font-weight: 600;
     font-size: var(--rs--preset--font-size--heading-3);
 }
 h4 {
+    font-weight: 600;
     font-size: var(--rs--preset--font-size--heading-4);
 }
 h5 {
@@ -494,7 +501,7 @@ body {
         content: "";
         height: 1px;
         width: 0;
-        background: white;
+        background: currentColor;
         display: block;
         position: absolute;
         bottom: 0;
@@ -506,6 +513,11 @@ body {
     #mobile-links a:not(.nav-button):not(.nav-icon):hover::after {
         width: 100%;
         transform: translateX(0);
+    }
+
+    .nav-inner a.active-link::after,
+    #mobile-links a.active-link::after{
+        width: 100% !important;
     }
 
 .nav-inner .submenu {
@@ -531,6 +543,7 @@ body {
     flex-direction: column;
     align-items: normal;
     background: rgba(21,21,21,0.75);
+    color: var(--rs--preset--color--white);
     z-index: 2;
     transition: opacity 0.15s linear;
     height: auto;
@@ -671,10 +684,13 @@ a.nav-button,
 }
 
 .nav-toggle-bar {
-    background-color: white;
+    background-color: var(--rs--preset--color--white);
     width: 100%;
     height: 2px;
     transition: transform 0.3s ease;
+}
+body.bg-gold .nav-toggle-bar {
+    background-color: var(--rs--preset--color--black);
 }
 
     .nav-toggle-bar:first-of-type {
@@ -684,6 +700,9 @@ a.nav-button,
 #nav-toggle.menu-open {
     transform: translateX(-6px);
 }
+    #nav-toggle.menu-open .nav-toggle-bar {
+        background-color: white;
+    }
 
     #nav-toggle.menu-open .nav-toggle-bar:first-of-type {
         transform: rotate(45deg) translateY(8px);
@@ -739,7 +758,7 @@ a.nav-button,
 .partial-top {
     padding-top: var(--rs--preset--spacing--100);
     padding-bottom: var(--rs--preset--spacing--80);
-    color: var(--rs--preset--color--white);
+    color: inherit;
     max-width: var(--rs--style--global--content-size);
     margin: 0 auto;
     z-index: 2;
@@ -748,6 +767,10 @@ a.nav-button,
 @media only screen and (min-width: 1100px) {
     .partial-top {
         max-width: 60%;
+        margin-left: 8%;
+    }
+    .partial-top-standard {
+        max-width: 70%;
         margin-left: 8%;
     }
 
@@ -769,6 +792,21 @@ a.nav-button,
     background-position: center 90%;
     background-repeat: no-repeat;
     bottom: -20vw;
+    z-index: 1;
+}
+.partial-top-standard::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-image: url(/images/line-hero-problem.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: -5vw;
     z-index: 1;
 }
 
@@ -814,7 +852,7 @@ a.nav-button,
 .hero-content {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 18px;
     z-index: 2;
     position: relative;
 }

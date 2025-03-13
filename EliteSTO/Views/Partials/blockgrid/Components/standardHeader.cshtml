@@ -1,8 +1,13 @@
 ﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.StandardHeader>>
 
-<div class="partial-top">
+<div class="partial-top partial-top-standard">
     <div class="flex-col">
-        <div>@Model.Content.Subtitle</div>
+        <div class="flex-row semi-bold padding-y-md">
+            <svg style="margin-left:-24px;" xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#fff" viewBox="0 0 256 256"><path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128Z"></path></svg>            
+            <div style="margin: auto 0 auto -12px;">
+                @Model.Content.Subtitle
+            </div>
+        </div>
         <div>@Model.Content.Title</div>
     </div>
 </div>
