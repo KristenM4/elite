@@ -78,7 +78,7 @@
                     <img style="margin: auto 0;" class="w-full" src="@Model.Content.Image.Url()" alt="@Model.Content.Image.GetAltText()" />
                 }
             </div>
-            <div class="flex-col gap-lg">
+            <div class="flex-col gap-xl">
                 <div>@Model.Content.Title</div>
                 <div>@Model.Content.Text</div>
                 @if (Model.Content.Buttons is not null && Model.Content.Buttons.Count > 0)
@@ -109,7 +109,7 @@
 @if (Model.Content.Section == 6)
 {
     <div style="z-index:2;position:relative;" class="bg-base color-black padding-y-lg">
-        <div class="flex-row-lg gap-2xl fade-in-section container bg-white">
+        <div class="grid-2 gap-lg fade-in-section container bg-white">
             <div class="image-collapse flex-col content-center">
                 @if (Model.Content.Image is not null)
                 {

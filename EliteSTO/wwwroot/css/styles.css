@@ -307,6 +307,22 @@ a {
     padding-top: var(--rs--preset--spacing--80);
     padding-bottom: var(--rs--preset--spacing--80);
 }
+.padding-b-sm {
+    padding-bottom: var(--rs--preset--spacing--20);
+}
+
+.padding-b-md {
+    padding-bottom: var(--rs--preset--spacing--40);
+}
+
+.padding-b-lg {
+    padding-bottom: var(--rs--preset--spacing--60);
+}
+
+.padding-b-xl {
+    padding-bottom: var(--rs--preset--spacing--80);
+}
+
 .margin-y-sm {
     margin-top: var(--rs--preset--spacing--20);
     margin-bottom: var(--rs--preset--spacing--20);
@@ -349,6 +365,7 @@ a {
     font-size: var(--rs--preset--font-size--normal);
     border-radius: 10px;
     width: fit-content;
+    cursor: pointer;
 }
 .button p {
     padding: 1.5px 0;
@@ -817,6 +834,11 @@ body.bg-gold .nav-toggle-bar {
         background-position: left 100%;
     }
 
+    .partial-top-standard::after {
+        bottom: 50vw;
+        width: 250%;
+    }
+
     .partial-top p {
         font-size: var(--rs--preset--font-size--normal);
     }
@@ -897,16 +919,16 @@ body.bg-gold .nav-toggle-bar {
     }
 }
 .image-collapse {
-    width: 50%;
-    height: 100%;
+    max-height: 600px;
 }
 .image-collapse img {
     margin: auto 0;
     height: 100%;
+    width: 100%;
+    object-fit:cover;
 }
 .content-collapse {
-    width: 50%;
-    padding: 45px 55px;
+    padding: 40px;
     justify-content: center;
 }
 @media only screen and (max-width: 1100px) {
@@ -922,6 +944,57 @@ body.bg-gold .nav-toggle-bar {
     .content-collapse {
         width: fit-content;
         padding: 35px 75px;
+    }
+}
+/* Problem page */
+.grid-4-problem {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    transition: all 1s ease;
+}
+.grid-4-problem > div img {
+    max-width: 220px;
+    height: 120px;
+    object-fit: contain;
+}
+@media only screen and (max-width: 600px) {
+    .grid-4-problem > div img {
+        max-width: 150px;
+        height: 90px;
+        object-fit: contain;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .grid-4-problem > div img {
+        max-width: 120px;
+        height: 60px;
+        object-fit: contain;
+    }
+}
+@media only screen and (min-width: 900px) {
+    .grid-4-problem > div:nth-of-type(1) {
+        margin-left: -120px;
+    }
+    .grid-4-problem > div:nth-of-type(3) {
+        margin-left: 50px;
+        margin-bottom: 80px;
+    }
+    .grid-4-problem > div:nth-of-type(4),
+    .grid-4-problem > div:nth-of-type(5),
+    .grid-4-problem > div:nth-of-type(6) {
+        margin-left: 120px;
+    }
+    .grid-4-problem > div:nth-of-type(7),
+    .grid-4-problem > div:nth-of-type(8) {
+        margin-left: -90px;
+    }
+    .grid-4-problem > div:nth-of-type(9) {
+        margin-top: 90px;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .grid-4-problem {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 /* Footer */
