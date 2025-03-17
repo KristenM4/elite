@@ -264,7 +264,16 @@ a {
     grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 @media only screen and (max-width: 1100px) {
-    .grid-2, .grid-3, .grid-4 {
+    .grid-2, .grid-4 {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr !important;
+    }
+    .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media only screen and (max-width: 800px) {
+    .grid-3 {
         grid-template-columns: 1fr !important;
         grid-template-rows: 1fr !important;
     }
@@ -835,8 +844,8 @@ body.bg-gold .nav-toggle-bar {
     }
 
     .partial-top-standard::after {
-        bottom: 50vw;
-        width: 250%;
+        bottom: 40vw;
+        width: 350%;
     }
 
     .partial-top p {
@@ -904,6 +913,21 @@ body.bg-gold .nav-toggle-bar {
     mask-position: top;
     top: calc(var(--rs--preset--spacing--80) * -1);
 }
+.before-divider-white-2 {
+    position: relative;
+}
+.before-divider-white-2::before {
+    position: absolute;
+    width: 100%;
+    height: var(--rs--preset--spacing--80);
+    background: inherit;
+    content: " ";
+    mask-image: url(/images/divider-shape-invert.svg);
+    mask-size: cover;
+    mask-position: top;
+    top: calc(var(--rs--preset--spacing--80) * -1);
+    z-index: 3;
+}
 .feature-item {
     padding: 30px 25px;
 }
@@ -953,9 +977,13 @@ body.bg-gold .nav-toggle-bar {
     transition: all 1s ease;
 }
 .grid-4-problem > div img {
-    max-width: 220px;
-    height: 120px;
+    max-width: 200px;
+    height: 110px;
     object-fit: contain;
+    transition: transform 1.5s ease;
+}
+.grid-4-problem > div img:hover {
+    transform: scale(1.1);
 }
 @media only screen and (max-width: 600px) {
     .grid-4-problem > div img {
@@ -995,6 +1023,44 @@ body.bg-gold .nav-toggle-bar {
 @media only screen and (max-width: 900px) {
     .grid-4-problem {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+        .grid-4-problem > div:nth-of-type(9) {
+            grid-column: span 2 / span 2;
+            padding-top: 45px;
+        }
+}
+@media only screen and (min-width: 1100px) {
+    .issues:nth-of-type(1),
+    .issues:nth-of-type(2),
+    .issues:nth-of-type(3) {
+        border-bottom: 1px solid rgba(115,115,115,0.3);
+    }
+
+    .issues:nth-of-type(1),
+    .issues:nth-of-type(4),
+    .issues:nth-of-type(2),
+    .issues:nth-of-type(5) {
+        border-right: 1px solid rgba(115,115,115,0.3);
+    }
+}
+@media only screen and (800px <= width <= 1100px) {
+    .issues:nth-of-type(1),
+    .issues:nth-of-type(2),
+    .issues:nth-of-type(3),
+    .issues:nth-of-type(4) {
+        border-bottom: 1px solid rgba(115,115,115,0.3);
+    }
+
+    .issues:nth-of-type(odd) {
+        border-right: 1px solid rgba(115,115,115,0.3);
+    }
+}
+@media only screen and (max-width: 800px) {
+    .issues {
+        border-bottom: 1px solid rgba(115,115,115,0.3);
+    }
+    .issues:last-of-type {
+        border-bottom: 0px;
     }
 }
 /* Footer */

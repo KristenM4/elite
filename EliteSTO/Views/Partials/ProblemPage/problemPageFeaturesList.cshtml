@@ -2,8 +2,8 @@
 
 @if (Model.Content.Section == 2)
 {
-    <div style="z-index:2;position:relative;" class="before-divider-white bg-black color-white">
-        <div class="fade-in-section container padding-y-lg flex-col">
+    <div style="z-index:2;position:relative;" class="before-divider-white bg-black color-white padding-y-xl">
+        <div class="fade-in-section container padding-y-sm flex-col">
             <div class="flex-col">
                 <div>@Model.Content.Title</div>
             </div>
@@ -15,7 +15,7 @@
                         <div class="flex-col content-center">
                             @if (item.Content.Image is not null)
                             {
-                                <a class="w-fit" title="@item.Content.Image.GetAltText()" href="@item.Content.Title">
+                                <a target="_blank" class="w-fit" title="@item.Content.Image.GetAltText()" href="@item.Content.Title">
                                     <img src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" />
                                 </a>
                             }
@@ -24,6 +24,25 @@
                     <div class="flex-col content-center">@Model.Content.Text</div>
                 </div>
             }
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 3)
+{
+    <div class="bg-base color-black padding-y-lg before-divider-white-2">
+        <div class="fade-in-section container padding-y-md flex-col">
+            <div class="flex-col gap-2xl">
+                <div>@Model.Content.Title</div>
+                @if (Model.Content.Features is not null)
+                {
+                    <div class="issues-grid grid-3">
+                        @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
+                        {
+                            <div class="issues" style="padding: 35px 25px;">@item.Content.Text</div>
+                        }
+                    </div>
+                }
+            </div>
         </div>
     </div>
 }
