@@ -46,3 +46,72 @@
         </div>
     </div>
 }
+@if (Model.Content.Section == 4)
+{
+    <div class="bg-black color-white padding-y-lg" style="position:relative; background-image: url(/images/problem-bg-image.jpg); background-size:cover; background-repeat:no-repeat;">
+        <div class="container padding-y-sm flex-col">
+            <div class="flex-col gap-2xl">
+                <div class="fade-in-section">@Model.Content.Title</div>
+                @if (Model.Content.Features is not null)
+                {
+                    <div class="bubble-container flex-col content-center gap-md">
+                        @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
+                        {
+                            <div class="bubble">@item.Content.Text</div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 5)
+{
+    <div class="who-we-help-container color-white padding-y-lg" style="">
+        <div class="container padding-y-sm flex-col">
+            <div class="fade-in-section flex-col gap-2xl">
+                <div class="">@Model.Content.Title</div>
+                @if (Model.Content.Features is not null)
+                {
+                    int toSkip = 0;
+                    <div class="grid-3 content-center gap-xl text-center">
+                        @for(var i = 0; i < 3; i++)
+                        {
+                            var stopLoop = false;
+                            <div class="who-we-help-grid padding-y-sm flex-col gap-md">
+                                @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features.Skip(toSkip))
+                                {
+                                    if (item.Content.Image is null && stopLoop) break;
+                                    toSkip = toSkip + 1;
+                                    if(item.Content.Image is null && !stopLoop)
+                                    {
+                                        <h5 class="semi-bold" style="margin-bottom: 15px;">@item.Content.Title</h5>
+                                        stopLoop = true;
+                                    }
+                                    else
+                                    {
+                                        <div tabindex="1" class="who-we-help flex-col gap-sm content-center">
+                                            @if (item.Content.Image is not null)
+                                            {
+                                                 <img style="width:75px;" src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" /> 
+                                             }
+                                            <p class="semi-bold">@item.Content.Title</p> 
+                                             <div class="hidden-box">
+                                                 <div class="flex-row"> 
+                                                     <svg tabindex="1" class="hidden-box-x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg> 
+                                                     <div>
+                                                         @item.Content.Text 
+                                                     </div> 
+                                                 </div> 
+                                             </div>
+                                         </div>
+                                    }
+                            }
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
