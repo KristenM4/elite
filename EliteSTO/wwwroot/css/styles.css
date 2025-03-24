@@ -971,6 +971,12 @@ body.bg-gold .nav-toggle-bar {
     }
 }
 /* Problem page */
+.header-dot {
+    fill: var(--rs--preset--color--gold);
+}
+body.bg-gold .header-dot {
+    fill: var(--rs--preset--color--white);
+}
 .grid-4-problem {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
