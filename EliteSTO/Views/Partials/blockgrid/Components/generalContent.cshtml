@@ -4,3 +4,7 @@
 {
     @await Html.PartialAsync("~/Views/Partials/HomePage/homepageContent.cshtml")
 }
+@if (Model.Content.Page?.ToLower().StripWhitespace() == "solution")
+{
+    @await Html.PartialAsync("~/Views/Partials/SolutionPage/solutionPageGeneralContent.cshtml")
+}

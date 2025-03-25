@@ -25,17 +25,49 @@
                         </clipPath>
                     </defs>
                 </svg>
-                <div class="toggle-container flex-col content-center gap-lg" style="width:100%;">
-                    <input class="toggle" type="checkbox">
+                <div class="toggle-container flex-col gap-lg" style="width:100%;">
+                    <input style="margin: 0 auto;" class="toggle" type="checkbox">
                     @if (Model.Content.Features is not null)
                     {
-                        <div style="position:relative;width:100%;height:600px;">
+                        <div style="position:relative;width:100%;">
                             @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
                             {
                                 @if (item.Content.Image is not null)
                                 {
                                     <img class="toggle-img" src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" />
                                 }
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 4)
+{
+    <div style="z-index:2;position:relative;" class="before-divider-white bg-base color-black padding-y-xl">
+        <div class="fade-in-section container flex-col">
+            <div class="flex-col content-center gap-lg">
+                <div>@Model.Content.Title</div>
+                <div class="flex-col gap-lg">
+                    <input style="margin: 0 auto;" class="toggle" type="checkbox">
+                    @if (Model.Content.Features is not null)
+                    {
+                        <div class="padding-y-sm">@Model.Content.Text</div>
+                        <div class="flex-row-md gap-xl" style="position:relative;width:100%;">
+                            @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
+                            {
+                                <div class="sliding-content">
+                                    @if (item.Content.Text is not null)
+                                    {
+                                        <div>@item.Content.Text</div>
+                                    }
+                                    @if (item.Content.Image is not null)
+                                    {
+                                        <img style="width:100%;max-width:850px;margin:0 auto;" src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" />
+                                    }
+                                </div>
                             }
                         </div>
                     }

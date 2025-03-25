@@ -240,6 +240,16 @@ a {
     display: flex;
     flex-direction: row;
 }
+.flex-row-md {
+    display: flex;
+    flex-direction: column;
+}
+@media only screen and (min-width: 800px) {
+    .flex-row-md {
+        display: flex;
+        flex-direction: row;
+    }
+}
 .flex-row-lg {
     display: flex;
     flex-direction: column;
@@ -292,6 +302,14 @@ a {
 }
 .gap-2xl {
     gap: 35px;
+}
+.gap-3xl {
+    gap: 45px;
+}
+.underline-links a span{
+    text-decoration: underline;
+    text-decoration-color: inherit;
+    text-underline-offset: 2px;
 }
 .content-center {
     justify-content: center;
@@ -1273,13 +1291,59 @@ input[type="checkbox"].toggle:checked:before {
     z-index: -1;
     opacity: 0;
 }
-    /* Footer */
-    footer {
-        background-color: var(--rs--preset--color--black);
-        color: var(--rs--preset--color--white) !important;
-        position: relative;
-        z-index: 5;
+.toggle-container {
+    height: 600px;
+}
+@media only screen and (max-width: 750px) {
+    .toggle-container {
+    height: 400px;
     }
+}
+@media only screen and (min-width: 1250px) {
+    .toggle-container {
+        height: 700px;
+    }
+}
+div:has(.sliding-content) {
+    min-height: 600px;
+}
+.sliding-content {
+    transition: all 0.7s ease;
+}
+@media only screen and (max-width: 750px) {
+    div:has(.sliding-content) {
+        min-height: 400px;
+    }
+}
+@media only screen and (max-width: 650px) {
+    div:has(.sliding-content) {
+        min-height: 200px;
+    }
+}
+    .sliding-content:last-of-type {
+        position: absolute;
+        transform: translateX(-1000%);
+        order: calc(-infinity);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+    }
+div:has(.toggle:checked) .sliding-content:nth-of-type(1),
+div:has(.toggle:checked) .sliding-content:nth-of-type(2) {
+    transform: translateX(1000%);
+}
+div:has(.toggle:checked) .sliding-content:last-of-type {
+    transform: translateX(0%);
+}
+/* Footer */
+footer {
+    background-color: var(--rs--preset--color--black);
+    color: var(--rs--preset--color--white) !important;
+    position: relative;
+    z-index: 5;
+}
 
         footer > div {
             max-width: var(--rs--style--global--content-size);
