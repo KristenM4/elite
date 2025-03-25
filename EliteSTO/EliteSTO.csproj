@@ -270,6 +270,9 @@
     <Content Update="Views\Partials\ProblemPage\problemPageFeaturesList.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Views\Partials\SolutionPage\solutionPageFeaturesList.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Views\SearchPage.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
