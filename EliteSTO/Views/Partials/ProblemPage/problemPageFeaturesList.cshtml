@@ -9,7 +9,7 @@
             </div>
             @if(Model.Content.Features is not null)
             {
-                <div class="grid-4-problem padding-y-lg">
+                <div style="position:relative;" class="grid-4-problem padding-y-lg">
                     @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
                     {
                         <div class="flex-col content-center">
@@ -21,7 +21,7 @@
                             }
                         </div>
                     }
-                    <div class="flex-col content-center">@Model.Content.Text</div>
+                    <div class="grid-4-problem-text flex-col content-center">@Model.Content.Text</div>
                 </div>
             }
         </div>
