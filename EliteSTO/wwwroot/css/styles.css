@@ -329,6 +329,11 @@ a {
         text-decoration-color: inherit;
         text-underline-offset: 2px;
     }
+.underline-links span a {
+    text-decoration: underline;
+    text-decoration-color: inherit;
+    text-underline-offset: 2px;
+}
 
     .content-center {
         justify-content: center;
@@ -1169,6 +1174,10 @@ a {
                 border-bottom: 0px;
             }
     }
+    .issues a {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
 
     .bubble {
         position: absolute;
@@ -1404,7 +1413,7 @@ a {
             line-height: 26px;
             border-radius: 100%;
             text-transform: uppercase;
-            text-indent: -45px;
+            text-indent: -48px;
             word-spacing: 48px;
             color: var(--wp--preset--color--gold);
             white-space: nowrap;

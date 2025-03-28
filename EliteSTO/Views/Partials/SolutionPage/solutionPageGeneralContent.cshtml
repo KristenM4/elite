@@ -2,8 +2,44 @@
 
 @if(Model.Content.Section == 3)
 {
-    <div class="fade-in-section container padding-y-xl container-w-lg color-white">
+    <div id="rightsto" class="fade-in-section container padding-y-xl container-w-lg color-white">
         <div style="padding: 0px 20px 80px 20px;" class="flex-row-lg gap-3xl">
+            <div class="content-center">@Model.Content.Title</div>
+            <div class="underline-links">@Model.Content.Text</div>
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 5)
+{
+    <div id="stoassess" style="z-index:2;position:relative;" class="bg-black before-divider-white-2 padding-y-xl padding-b-sm color-white">
+        <div style="padding: 0px 20px 80px 20px;" class="fade-in-section flex-row-lg gap-3xl container container-w-lg">
+            <div class="content-center">@Model.Content.Title</div>
+            <div class="underline-links">@Model.Content.Text</div>
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 7)
+{
+    <div id="stoassist" style="z-index:2;position:relative;" class="bg-base color-black before-divider-white padding-y-xl padding-b-sm">
+        <div style="padding: 0px 20px 80px 20px;" class="fade-in-section flex-row-lg gap-3xl container container-w-lg">
+            <div class="content-center">@Model.Content.Title</div>
+            <div class="underline-links">@Model.Content.Text</div>
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 9)
+{
+    <div id="storecover" style="z-index:2;position:relative;" class="bg-black color-white before-divider-white-2 padding-y-xl padding-b-sm">
+        <div style="padding: 0px 20px 80px 20px;" class="fade-in-section flex-row-lg gap-3xl container container-w-lg">
+            <div class="content-center">@Model.Content.Title</div>
+            <div class="underline-links">@Model.Content.Text</div>
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 11)
+{
+    <div id="stopartner" style="z-index:2;position:relative;" class="bg-base color-black before-divider-white padding-y-xl padding-b-sm">
+        <div style="padding: 0px 20px 80px 20px;" class="fade-in-section flex-row-lg gap-3xl container container-w-lg">
             <div class="content-center">@Model.Content.Title</div>
             <div class="underline-links">@Model.Content.Text</div>
         </div>

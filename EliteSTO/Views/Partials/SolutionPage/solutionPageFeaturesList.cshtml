@@ -58,3 +58,65 @@
         </div>
     </div>
 }
+@if (Model.Content.Section == 6 || Model.Content.Section == 10)
+{
+    <div style="z-index:2;position:relative;" class="bg-black color-white padding-b-xl">
+        <div class="fade-in-section container flex-col padding-b-lg">
+            <div class="flex-col gap-lg">
+                <div>@Model.Content.Title</div>
+                <div class="flex-col gap-lg">
+                    @if (Model.Content.Features is not null)
+                    {
+                        <div class="padding-y-sm">@Model.Content.Text</div>
+                        <div class="grid-2 gap-3xl" style="position:relative;width:100%;">
+                            @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
+                            {
+                                <div>
+                                    @if (item.Content.Text is not null)
+                                    {
+                                        <div>@item.Content.Text</div>
+                                    }
+                                    @if (item.Content.Image is not null)
+                                    {
+                                        <img style="width:100%;max-width:850px;margin:0 auto;" src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" />
+                                    }
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 8 || Model.Content.Section == 12)
+{
+    <div style="z-index:2;position:relative;" class="bg-base color-black padding-b-xl">
+        <div class="fade-in-section container flex-col">
+            <div class="flex-col gap-lg">
+                <div>@Model.Content.Title</div>
+                <div class="flex-col gap-lg">
+                    @if (Model.Content.Features is not null)
+                    {
+                        <div class="padding-y-sm">@Model.Content.Text</div>
+                        <div class="grid-2 gap-3xl" style="position:relative;width:100%;">
+                            @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
+                            {
+                                <div>
+                                    @if (item.Content.Text is not null)
+                                    {
+                                        <div>@item.Content.Text</div>
+                                    }
+                                    @if (item.Content.Image is not null)
+                                    {
+                                        <img style="width:100%;max-width:850px;margin:0 auto;" src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" />
+                                    }
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
