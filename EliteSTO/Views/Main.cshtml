@@ -3,7 +3,10 @@
 	Layout = null;
 }
 <html lang="en">
-@await Html.PartialAsync("header")
+	<head>
+        @await Html.PartialAsync("header")
+	</head>
+
 <body>
 @await Html.PartialAsync("nav")
 @RenderBody()

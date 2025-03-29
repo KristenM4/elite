@@ -3,7 +3,9 @@
 	Layout = null;
 }
 <html lang="en">
-@await Html.PartialAsync("header")
+<head>
+	@await Html.PartialAsync("header")
+</head>
 <body current-color="gold" class="bg-gold color-black">
 @await Html.PartialAsync("nav")
 @RenderBody()
