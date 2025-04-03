@@ -45,3 +45,12 @@
         </div>
     </div>
 }
+@if (Model.Content.Section == 13)
+{
+    <div id="stoanalytics" style="z-index:2;position:relative;" class="bg-black color-white before-divider-white-2 padding-y-xl padding-b-sm">
+        <div style="padding: 0px 20px 80px 20px;" class="fade-in-section flex-row-lg gap-3xl container container-w-lg">
+            <div class="content-center">@Model.Content.Title</div>
+            <div class="underline-links">@Model.Content.Text</div>
+        </div>
+    </div>
+}

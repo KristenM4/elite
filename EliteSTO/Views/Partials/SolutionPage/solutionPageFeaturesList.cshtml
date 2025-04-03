@@ -2,7 +2,7 @@
 
 @if (Model.Content.Section == 2)
 {
-    <div style="z-index:2;position:relative;" class="hide-mobile bg-black color-white padding-y-xl">
+    <div id="before-after" style="z-index:2;position:relative;" class="hide-mobile bg-black color-white padding-y-xl">
         <div class="fade-in-section container flex-col">
             <div class="flex-col content-center gap-md">
                 <div>@Model.Content.Title</div>
@@ -58,7 +58,7 @@
         </div>
     </div>
 }
-@if (Model.Content.Section == 6 || Model.Content.Section == 10)
+@if (Model.Content.Section == 6 || Model.Content.Section == 10 || Model.Content.Section == 14)
 {
     <div style="z-index:2;position:relative;" class="bg-black color-white padding-b-xl">
         <div class="fade-in-section container flex-col padding-b-lg">
@@ -110,6 +110,36 @@
                                     @if (item.Content.Image is not null)
                                     {
                                         <img style="width:100%;max-width:850px;margin:0 auto;" src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" />
+                                    }
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 15)
+{
+    <div style="z-index:2;position:relative;" class="bg-base before-divider-white color-black padding-y-lg padding-b-xl">
+        <div class="fade-in-section container flex-col">
+            <div class="flex-col gap-lg">
+                <div class="padding-b-md">@Model.Content.Title</div>
+                <div class="flex-col gap-lg">
+                    @if (Model.Content.Features is not null)
+                    {
+                        <div class="grid-2 gap-3xl" style="position:relative;width:100%;">
+                            @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
+                            {
+                                <div class="stoanalytics">
+                                    @if (item.Content.Text is not null)
+                                    {
+                                        <div>@item.Content.Text</div>
+                                    }
+                                    @if (item.Content.Image is not null)
+                                    {
+                                        <img style="width:100%;margin:0 auto;" src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" />
                                     }
                                 </div>
                             }

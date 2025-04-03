@@ -1,0 +1,14 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.GeneralContent>>
+
+@if(Model.Content.Section == 2)
+{
+    <div style="position:relative;z-index:2;" class="padding-y-xl bg-gold color-black before-divider-white">
+        <div class="flex-col gap-3xl fade-in-section container-wide">
+            <div class="content-center padding-b-md">@Model.Content.Title</div>
+            <div class="grid-2 content-center gap-2xl">
+                <img class="w-full" style="max-width:600px;margin:0 auto;" src="@Model.Content.Image.Url()" />
+                <div class="underline-links flex-col" style="margin:0 auto;justify-content:space-between;line-height:2;">@Model.Content.Text</div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,82 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.FeaturesList>>
+
+@if (Model.Content.Section == 3)
+{
+    <div style="z-index:2;position:relative;" class="bg-gold color-black padding-y-lg padding-b-xl">
+        <div class="fade-in-section container padding-y-sm flex-col gap-md">
+            <div class="flex-col text-center">
+                <div>@Model.Content.Title</div>
+            </div>
+            @if(Model.Content.Features is not null)
+            {
+                <div style="position:relative;" class="grid-4 padding-y-lg gap-xl">
+                    @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
+                    {
+                        <div class="flex-col gap-md w-full">
+                            @if (item.Content.Image is not null)
+                            {
+                                <img class="w-fit padding-b-md" style="height: 75px;margin:0 auto;" src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" />
+                            }
+                            <p class="lead bold">@item.Content.Title</p>
+                            <p>@item.Content.Text</p>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 4)
+{
+    <div style="z-index:2;position:relative;" class="bg-black before-divider-white-2 color-white padding-y-lg">
+        <div class="fade-in-section container padding-y-sm flex-col gap-2xl">
+            <div class="flex-col gap-2xl" style="justify-items:start;max-width:450px;">
+                <div>@Model.Content.Title</div>
+                <div>@Model.Content.Text</div>
+            </div>
+            @if (Model.Content.Features is not null)
+            {
+                <div class="globally-located grid-2 gap-2xl" style="justify-items:end;">
+                    @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
+                    {
+                        <div class="content-center gap-md">
+                            @if (item.Content.Image is not null)
+                            {
+                                <img class="w-fit" style="max-width:200px;" src="@item.Content.Image.Url()" alt="@item.Content.Image.GetAltText()" />
+                            }
+                            @if(item.Content.Title.Contains(".com"))
+                            {
+                                <div class="underline-hover-links">@item.Content.Text</div>
+                            } else
+                            {
+                                <p class="lead">@item.Content.Title</p>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}
+@if (Model.Content.Section == 5)
+{
+    <div id="contact" class="bg-black color-white padding-y-xl">
+        <div class="fade-in-section container padding-y-sm grid-2 gap-3xl">
+            <div class="flex-col gap-3xl">
+                <div>@Model.Content.Title</div>
+                <div>@Model.Content.Text</div>
+            </div>
+            @if (Model.Content.Features is not null)
+            {
+                <div style="border-radius:50px;" class="flex-col gap-2xl content-center bg-base color-black padding-y-lg">
+                    @foreach (BlockListItem<ContentModels.Feature> item in Model.Content.Features)
+                    {
+                        <div class="content-center gap-md">
+                            <div class="underline-hover-links">@item.Content.Text</div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}
