@@ -1,0 +1,13 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.Form>>
+
+<div id="contact" class="bg-black color-white padding-y-xl">
+    <div class="fade-in-section container padding-y-sm grid-2 gap-3xl">
+        <div class="flex-col gap-3xl">
+            <div>@Model.Content.Title</div>
+            <div>@Model.Content.Text</div>
+        </div>
+        <div style="border-radius:5px;" class="flex-col gap-2xl content-center bg-base color-black padding-md">
+            @await Component.InvokeAsync("Contact")
+        </div>
+    </div>
+</div>

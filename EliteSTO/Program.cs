@@ -1,3 +1,5 @@
+using EliteSTO.Configuration;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.CreateUmbracoBuilder()
@@ -6,6 +8,9 @@ builder.CreateUmbracoBuilder()
     .AddDeliveryApi()
     .AddComposers()
     .Build();
+
+builder.Services.Configure<EliteSTOConfig>(
+    builder.Configuration.GetSection(EliteSTOConfig.SectionName));
 
 WebApplication app = builder.Build();
 

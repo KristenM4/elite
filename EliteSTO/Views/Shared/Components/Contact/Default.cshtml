@@ -1,0 +1,74 @@
+﻿@inherits UmbracoViewPage<ContactViewModel>
+@using EliteSTO.Controllers.Surface
+@using EliteSTO.umbraco.Models.ViewModels
+
+@{
+    bool submitted = bool.TryParse(TempData["ContactSuccess"]?.ToString() ?? string.Empty, out var success);
+}
+
+@if(submitted)
+{
+    <div>
+        @if(success)
+        {
+            <p class="bold color-gold">@Umbraco.GetDictionaryValueOrDefault("ContactForm.SuccessMessage", "Thank you for your email. We will be in touch shortly.")</p>
+        }
+        else
+        {
+            <p class="bold color-error">@Umbraco.GetDictionaryValueOrDefault("ContactForm.ErrorMessage", "There was a problem when submitting the form. Please try again later.")</p>
+        }
+    </div>
+}
+@using (Html.BeginUmbracoForm<ContactSurfaceController>("Submit", FormMethod.Post, new { @class = "flex-col w-full", role = "form" }))
+{
+    <div class="flex-row-lg gap-sm w-full" style="justify-content:space-between;">
+        <!-- Name input-->
+        <div class="form-group">
+            <input asp-for="@Model.Name" class="form-control" id="name" type="text" placeholder="Full name" aria-label="Name" />
+            <span asp-validation-for="@Model.Name" class="color-error"></span>
+        </div>
+        <!-- Email address input-->
+        <div class="form-group">
+            <input asp-for="@Model.Email" class="form-control" id="email" type="text" placeholder="Email address" aria-label="Email" />
+            <span asp-validation-for="@Model.Email" class="color-error"></span>
+        </div>
+    </div>
+    <div class="flex-row-lg gap-sm w-full" style="justify-content:space-between;">
+        <!-- Phone Number input-->
+        <div class="form-group">
+            <input asp-for="@Model.Phone" class="form-control" id="phone" type="text" placeholder="Phone number" aria-label="Phone number" />
+            <span asp-validation-for="@Model.Phone" class="color-error"></span>
+        </div>
+        <!-- Company Name input-->
+        <div class="form-group">
+            <input asp-for="@Model.CompanyName" class="form-control" id="companyName" type="text" placeholder="Company Name" aria-label="Company Name" />
+            <span asp-validation-for="@Model.CompanyName" class="color-error"></span>
+        </div>
+    </div>
+    <!-- Country input-->
+    <div class="form-group">
+        <select asp-for="@Model.Country" name="Country" id="Country" title="Country" aria-label="Country">
+            <option selected disabled>Country</option>
+            @foreach(var country in ContactSurfaceController.countries)
+            {
+                <option value="@country">@country</option>
+            }
+        </select>
+        <span asp-validation-for="@Model.Country" class="color-error"></span>
+    </div>
+    <!-- Message input-->
+    <div class="form-group">
+        <label asp-for="@Model.Message"></label>
+        <textarea rows="7" style="resize:none;" asp-for="@Model.Message" class="form-control" id="Message" type="text" placeholder="Message" aria-label="Message"></textarea>
+        <span asp-validation-for="@Model.Message" class="color-error"></span>
+    </div>
+    <div>
+        <button class="button button-black margin-y-sm" type="submit">Send</button>
+    </div>
+}
+<script>
+    const errors = document.getElementsByClassName('field-validation-error');
+    if(errors.length > 0) {
+        document.getElementById('contact').scrollIntoView();
+    }
+</script>
