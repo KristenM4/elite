@@ -1,0 +1,5 @@
+﻿User-agent: *
+Disallow: /umbraco/
+Allow: /
+
+Sitemap: https://elitesto.com/sitemap.xml
